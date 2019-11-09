@@ -1,0 +1,39 @@
+
+{% extends 'partials/base.html.twig' %}
+
+{% set collection=page.collection() %}
+
+{% block content %}
+
+      
+	   {% for page in collection %}
+
+	   	<div class="row">
+
+		    <div class="col-sm-12">
+
+			      <h2>{{page.title}}</h2>
+
+			      <h5><span class="glyphicon glyphicon-calendar"></span> {{page.date|date('F d, Y')}}</h5>
+
+			      <p> {{page.summary(500)}}</p>
+
+			      <a href="{{page.url}}" class="btn btn-default btn-sm">
+			          <span class="glyphicon glyphicon-arrow-right"></span> Περισσότερα
+			      </a>
+
+			</div>
+
+        </div>
+	      
+	   {% endfor %}
+
+	   {% if config.plugins.pagination.enabled and collection.params.pagination %}
+
+		    {% include 'partials/pagination.html.twig' with {'base_url':page.url, 'pagination':collection.params.pagination} %}
+    
+	   {% endif %}
+   
+    
+
+{% endblock %}

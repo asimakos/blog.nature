@@ -1,0 +1,17 @@
+{% extends 'partials/base.html.twig' %}
+
+
+{% block content %}
+    
+   	<div class="card">
+
+      <a href="{{page.url}}">{{page.title}}</a>
+
+       <h5><span class="glyphicon glyphicon-calendar"></span> {{page.date|date('F d, Y')}}</h5>
+
+      <p> {{page.content}}</p>
+
+      
+    </div>
+
+{% endblock %}
